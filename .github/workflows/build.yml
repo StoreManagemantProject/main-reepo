@@ -26,6 +26,11 @@ jobs:
         mkdir -p $HOME/.kube
         echo "${{ secrets.KUBECONFIG_DATA }}" > $HOME/.kube/config
 
-    - name: Deploy to Kubernetes
-      run: |
-        kubectl apply -f helm/ --validate=false
+    - - name: Deploy to Kubernetes
+        run: |
+          # Wait for cluster to be ready
+          sleep 30
+          # Apply with validation skip
+          kubectl apply -f helm/ --validate=false
+          # Verify
+          kubectl get all
