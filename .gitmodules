@@ -1,3 +1,6 @@
 [submodule "AuthService"]
 	path = AuthService
 	url = https://github.com/StoreManagemantProject/AuthService.git
+[submodule "new-submodule"]
+	path = new-submodule
+	url = https://github.com/StoreManagemantProject/auth-service.git
